@@ -11,7 +11,6 @@ function Opportunities({ count }) {
     )
       .then((data) => data.json())
       .then((json) => setOportunidades(json));
-    console.log(Oportunidades);
   }, [count]);
 
   return (
