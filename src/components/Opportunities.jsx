@@ -11,6 +11,7 @@ function Opportunities({ count }) {
     )
       .then((data) => data.json())
       .then((json) => setOportunidades(json));
+    console.log(Oportunidades);
   }, [count]);
 
   return (
@@ -19,15 +20,18 @@ function Opportunities({ count }) {
         <h1>Loading...</h1>
       ) : (
         <div>
-          <h1>Oportunidades:</h1>
-          {Oportunidades.data.map((opp) => {
-            console.log(opp);
-            return <li key={opp.id}>{opp.title}</li>;
-          })}
+          <h1 className="text-lg font-bold">Oportunidades:</h1>
+          <ul>
+            {Oportunidades.data.map((opp) => {
+              return (
+                <li className="list-none cursor-pointer p-4" key={opp.id}>
+                  <h2 className="text-lg">{opp.title}</h2>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       )}
-
-      {console.log(Oportunidades.data)}
     </div>
   );
 }
