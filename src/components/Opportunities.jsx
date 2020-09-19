@@ -3,24 +3,27 @@ import Loader from "../static/tenor.gif";
 
 function Opportunities({ Oportunidades }) {
   return (
-    <div>
+    <>
       {Oportunidades.data.length <= 1 ? (
         <img src={Loader} alt="loading app" className="loader-gif" />
       ) : (
-        <div>
-          <h1 className="text-lg font-bold">Oportunidades:</h1>
+        <>
           <ul>
             {Oportunidades.data.map((opp) => {
               return (
-                <li className="list-none cursor-pointer p-4" key={opp.id}>
-                  <h2 className="text-lg">{opp.title}</h2>
+                <li className="cursor-pointer p-4 flex" key={opp.id}>
+                  {console.log(opp)}
+                  <img src={opp.profile_photo_urls.thumb} alt={opp.title} />
+                  <h2 className="text-2xl px-3 text-blue-600 hover:text-blue-800 text-underline">
+                    {opp.title}
+                  </h2>
                 </li>
               );
             })}
           </ul>
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 }
 

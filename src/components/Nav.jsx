@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <div>
-      <nav className="flex items-center justify-between flex-wrap bg-white e p-6">
+    <>
+      <nav
+        id="header"
+        className="flex items-center justify-between flex-wrap bg-white e p-6"
+      >
         <div className="flex items-center flex-shrink-0 text-white mr-6 w-64">
           <img
             src="https://aiesec.org.mx/wp-content/uploads/2015/10/AIESEC-1.png"
@@ -12,8 +15,8 @@ function Nav() {
           />
         </div>
 
-        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-          <div className="text-sm lg:flex-grow">
+        <div className=" w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div className=" hidden md:block text-sm lg:flex-grow">
             <Link
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 font-bold hover:text-black mr-4"
               to="/"
@@ -35,7 +38,7 @@ function Nav() {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

@@ -6,6 +6,8 @@ import Opportunities from "../components/Opportunities";
 
 import Loader from "../static/tenor.gif";
 
+import Footer from "../components/Footer";
+
 export default function Home() {
   let [count, setCount] = useState(610);
 
@@ -45,11 +47,12 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <>
       <Nav />
-      <div className="py-8 px-20">
+      <div className="py-8 px-8 md:px-20 ">
         <Search />
-        <div id="lista" className="list-opp p-4 bg-gray-300 mt-4">
+        <div id="lista" className="list-opp relative p-4 bg-gray-300 mt-4">
+          <h1 className="text-lg font-bold text-indigo-500">Oportunidades:</h1>
           <Opportunities
             loading={Oportunidades.loading}
             Oportunidades={Oportunidades}
@@ -64,8 +67,14 @@ export default function Home() {
             ¡Next Page!
           </button>
         </div>
+        <div className="text-center w-full text-indigo-800">
+          <a href="#header" className="underline">
+            Back Top
+          </a>
+        </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 }
 
