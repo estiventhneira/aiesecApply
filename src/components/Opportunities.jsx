@@ -1,13 +1,36 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 import Loader from "../static/tenor.gif";
+import Modal from "../components/Modal";
 
 function Opportunities({ Oportunidades }) {
-  function handleTitleChange(params) {
-    console.log(params);
+  //
+  const [state, setstate] = useState({
+    data: null,
+    isModalOpen: false,
+  });
+
+  function onChangeModal(opp) {
+    setstate({
+      ...state,
+      data: opp,
+      isModalOpen: true,
+    });
   }
+
+  function onCloseModal(e) {
+    setstate({
+      ...state,
+      isModalOpen: false,
+    });
+  }
+
   return (
     <>
+      <Modal
+        idOpp={state.data}
+        onClose={onCloseModal}
+        isOpen={state.isModalOpen}
+      ></Modal>
       {Oportunidades.data.length <= 1 ? (
         <img src={Loader} alt="loading app" className="loader-gif" />
       ) : (
@@ -15,7 +38,9 @@ function Opportunities({ Oportunidades }) {
           {Oportunidades.data.map((opp) => {
             return (
               <li
-                onClick={handleTitleChange(opp)}
+                onClick={() => {
+                  onChangeModal(opp);
+                }}
                 className="cursor-pointer p-4 flex"
                 key={opp.id}
               >
