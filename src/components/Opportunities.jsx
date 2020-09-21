@@ -52,7 +52,7 @@ function Opportunities({ Oportunidades }) {
                     {opp.branch ? opp.branch.name : "No name"}
                   </span>
                   <br />
-                  <span className="text-base text-gray-600 font-thin">
+                  <span className="hidden md:block text-base text-gray-600 font-thin">
                     {opp.id}
                   </span>
                 </h2>
