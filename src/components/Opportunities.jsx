@@ -48,10 +48,7 @@ function Opportunities({ Oportunidades }) {
                 <h2 className="text-2xl px-3 text-blue-600 hover:text-blue-800 text-underline">
                   {opp.title}
                   <br />
-                  <span className="text-base text-gray-600 font-semibold">
-                    {opp.branch.name}
-                  </span>
-                  <br />
+
                   <span className="text-base text-gray-600 font-thin">
                     {opp.id}
                   </span>
