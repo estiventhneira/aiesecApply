@@ -29,6 +29,14 @@ function Docs() {
               Code here
             </a>
           </p>
+          <p className="text-lg">
+            <a
+              className="text-blue-600 font-bold"
+              href="https://aiesec-apply-build.vercel.app/"
+            >
+              Product here
+            </a>
+          </p>
         </div>
       </section>
     </>

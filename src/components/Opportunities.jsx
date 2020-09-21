@@ -47,8 +47,15 @@ function Opportunities({ Oportunidades }) {
                 <img src={opp.profile_photo_urls.thumb} alt={opp.title} />
                 <h2 className="text-2xl px-3 text-blue-600 hover:text-blue-800 text-underline">
                   {opp.title}
+                  <br />
+                  <span className="text-base text-gray-600 font-semibold">
+                    {opp.branch.name}
+                  </span>
+                  <br />
+                  <span className="text-base text-gray-600 font-thin">
+                    {opp.id}
+                  </span>
                 </h2>
-                <span></span>
               </li>
             );
           })}
