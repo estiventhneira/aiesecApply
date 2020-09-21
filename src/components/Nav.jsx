@@ -16,10 +16,10 @@ function Nav() {
         </div>
 
         <div className=" w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-          <div className=" hidden md:block text-sm lg:flex-grow">
+          <div className="text-sm lg:flex-grow">
             <Link
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 font-bold hover:text-black mr-4"
-              to="/"
+              to="/docs"
             >
               Docs
             </Link>
@@ -27,13 +27,7 @@ function Nav() {
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 font-bold hover:text-black mr-4"
               to="/"
             >
-              Examples
-            </Link>
-            <Link
-              className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 font-bold hover:text-black"
-              to="/"
-            >
-              Blog
+              App
             </Link>
           </div>
         </div>

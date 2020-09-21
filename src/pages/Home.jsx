@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Nav from "../components/Nav";
-import Search from "../components/Search";
 import Opportunities from "../components/Opportunities";
-import Footer from "../components/Footer";
 
 import Loader from "../static/tenor.gif";
 
@@ -48,7 +46,7 @@ export default function Home() {
     <>
       <Nav />
       <div className="py-8 px-8 md:px-20 ">
-        <Search />
+        <h1 className="text-4xl text-center text-accent-1 mb-4">Search Opp</h1>
         <div id="lista" className="list-opp relative p-4 bg-gray-300 mt-4">
           <h1 className="text-lg font-bold text-indigo-500">Oportunidades:</h1>
           <Opportunities
@@ -71,7 +69,6 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <Footer></Footer>
     </>
   );
 }
