@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import debounce from "just-debounce-it";
 
 import Nav from "../components/Nav";
 import Opportunities from "../components/Opportunities";
@@ -7,13 +8,34 @@ import Loader from "../static/tenor.gif";
 
 export default function Home() {
   let [count, setCount] = useState(611);
-
   const [Oportunidades, setOportunidades] = useState({
     loading: false,
     data: [],
   });
 
+  /* (onChangeVisibility = (entries) => {
+        console.log("hola");
+      }) */
+
+  const debounceHandleChangeVisibility = useCallback(
+    debounce((e) => {
+      if (e[0].isIntersecting) {
+        setCount((prevCount) => prevCount + 1);
+      }
+    }, 200),
+    []
+  );
+
   useEffect(() => {
+    const observer = new IntersectionObserver(debounceHandleChangeVisibility, {
+      rootMargin: "270px",
+    });
+
+    observer.observe(document.getElementById("Infinite-Scroll-Element"));
+  }, [debounceHandleChangeVisibility]);
+
+  useEffect(() => {
+    /* -------- */
     try {
       setOportunidades({
         ...Oportunidades,
@@ -38,9 +60,7 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
-  const handleClick = () => {
-    setCount(count + 1);
-  };
+  /* scroll infinito */
 
   return (
     <>
@@ -56,12 +76,7 @@ export default function Home() {
         </div>
         <CargaSecundaria loading={Oportunidades.loading} />
         <div className="justify-center items-center flex">
-          <button
-            onClick={handleClick}
-            className="my-4 bg-blue-200 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-          >
-            ¡Next Page!
-          </button>
+          <span id="Infinite-Scroll-Element"></span>
         </div>
         <div className="text-center w-full text-indigo-800">
           <a href="#header" className="underline">
