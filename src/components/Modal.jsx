@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Loader from "../static/tenor.gif";
 
-function Modal({ isOpen, onClose, idOpp = "" }) {
+function Modal({ isOpen, onClose, OppData = "" }) {
   const [state, setstate] = useState({
-    inputValue: idOpp,
+    inputValue: OppData,
   });
 
   function changeInputValue(e) {
@@ -19,26 +19,42 @@ function Modal({ isOpen, onClose, idOpp = "" }) {
   } else {
     return ReactDOM.createPortal(
       <div className="modal-container">
-        <div className="bg-white text-black text-lg top-0 p-10 md:p-16 modal__opp flex justify-center flex-col">
-          <h3 className="text-2xl">New name of the Opp: {idOpp.id}</h3>
+        <div className="bg-white text-black text-lg top-0 p-8 md:p-12 modal__opp flex justify-center flex-col">
+          <h2 className="text-2xl font-semibold text-blue-700">
+            {OppData.title}
+          </h2>
+          <p className="text-blue-700">Company: {OppData.branch.name}</p>
+          <p className="text-blue-700">{OppData.office.country}</p>
+          {OppData.status ? (
+            <p className="font-semibold text-green-500">Open</p>
+          ) : (
+            <p className="font-semibold text-red-500">Close</p>
+          )}
+          <h3 className="text-xl font-light text-blue-400">Id: {OppData.id}</h3>
+          <a className="text-blue-400" href={OppData.url}>
+            Link to opportunity
+          </a>
+          {console.log(OppData)}
+          <br />
+          <p className="font-semibold">Write the new title:</p>
           <input
-            className="border-solid border-2 border-gray-600 mt-4"
+            className="border-solid border-2 border-gray-600 mt-2"
             onChange={(e) => {
               changeInputValue(e);
             }}
-            placeholder={idOpp.title}
+            placeholder={OppData.title}
             type="text"
           />
           <div className="btn-container flex justify-around font-bold mt-8">
             <button
               onClick={onClose}
-              className="Modal__close-button text-white font-bold bg-red-600 p-2 px-4 rounded-md "
+              className="Modal__close-button text-white font-bold bg-red-600 md:p-2 md:px-4 p-1 px-2 rounded-md "
             >
               Close
             </button>
             <button
-              onClick={() => editTitle(state.inputValue, idOpp.id)}
-              className="Modal__close-button font-bold text-white bg-teal-400 p-2 px-4 rounded-md "
+              onClick={() => editTitle(state.inputValue, OppData.id)}
+              className="Modal__close-button font-bold text-white bg-teal-400 md:p-2 md:px-4 p-1 px-2 p-2 px-4 rounded-md "
             >
               Change title
             </button>

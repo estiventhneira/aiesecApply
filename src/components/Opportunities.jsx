@@ -27,7 +27,7 @@ function Opportunities({ Oportunidades }) {
   return (
     <>
       <Modal
-        idOpp={state.data}
+        OppData={state.data}
         onClose={onCloseModal}
         isOpen={state.isModalOpen}
       ></Modal>
