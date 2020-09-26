@@ -19,22 +19,23 @@ function Modal({ isOpen, onClose, OppData = "" }) {
   } else {
     return ReactDOM.createPortal(
       <div className="modal-container">
-        <div className="bg-white text-black text-lg top-0 p-8 md:p-12 modal__opp flex justify-center flex-col">
+        <div className="bg-white text-black text-lg top-0 p-8 md:p-8 modal__opp flex justify-center flex-col">
           <h2 className="text-2xl font-semibold text-blue-700">
             {OppData.title}
           </h2>
-          <p className="text-blue-700">Company: {OppData.branch.name}</p>
-          <p className="text-blue-700">{OppData.office.country}</p>
+          <p className="text-blue-700">Company: {OppData.branch.name || ""}</p>
+          <p className="text-blue-700">{OppData.office.country || ""}</p>
           {OppData.status ? (
             <p className="font-semibold text-green-500">Open</p>
           ) : (
             <p className="font-semibold text-red-500">Close</p>
           )}
-          <h3 className="text-xl font-light text-blue-400">Id: {OppData.id}</h3>
-          <a className="text-blue-400" href={OppData.url}>
+          <h3 className="text-xl font-light text-blue-400">
+            Id: {OppData.id || ""}
+          </h3>
+          <a className="text-blue-400" href={OppData.url || ""}>
             Link to opportunity
           </a>
-          {console.log(OppData)}
           <br />
           <p className="font-semibold">Write the new title:</p>
           <input
